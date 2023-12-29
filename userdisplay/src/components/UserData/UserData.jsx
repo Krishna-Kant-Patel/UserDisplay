@@ -21,13 +21,19 @@ function UserData() {
     <>
       <div className="userContainer">
         {userDetails ? <><div className="userList">
+            <h4 className='Head'>Users</h4>
             {userDetails &&
             userDetails.map((item)=>{
                 return<>
                 <div className="userId" onClick={()=>getUserDetail(item.profile.username)}>
+                
                     <img src={item.avatar} alt="" className="userImage" />
-                    <p className="username">{item.profile.firstName} {item.profile.lastName}</p>
-                </div>
+        
+                   <div className="userJob">
+                   <p className="username">{item.profile.firstName} {item.profile.lastName}</p>
+                   <p className="job">{item.jobTitle}</p>
+               </div> 
+                    </div>
                 </>
             })
             }
@@ -43,6 +49,7 @@ function UserData() {
             
             singleUser.map((item)=>{
                 return <>
+                <p><span>User-Name:-</span>  {item.profile.username}</p>
                 <p><span>E-mail:-</span>  {item.profile.email}</p>
                 <p><span>Job Title:-</span> {item.jobTitle}</p>
                 <p><span>Bio:-</span> {item.Bio}</p>
